@@ -1,0 +1,3 @@
+# Data 
+
+The H4K20 methylation proportions of both mock and HUA over time can be found in the file [H4K20states.xlsx](H4K20states.xlsx). Until the original data set will be published (Pokrovsky et al., to be submitted) we will provide dummy data in [H4K20states_dummy.xlsx](H4K20states_dummy.xlsx). Upon publication of the data we will upload the the true data here. The doubling times of cells during Xenopus embryogenesis found in literature are summarized in [DTdata.xlsx](DTdata.xlsx). The corresponding import scripts can be found in the same folder. The images of mock and HUA embryos corresponding to the different developmental stages (Figure 1A) can be found in [/images](/images).
