@@ -40,11 +40,13 @@ function S = main_histonesXenopusAll(datatype,dist,modelsyms1,num_cycpar,dem,num
 
 %% add paths and install AMICI
 if server
-    addpath(genpath('/mnt/znas/icb_zstore01/scratch/users/lea.schuh/XenopusIII'));
+    addpath(genpath('/mnt/znas/icb_zstore01/scratch/users/lea.schuh/Xenopus'));
 else
     addpath(genpath('../HistonesXenopus')) 
     addpath(genpath('./tools/AMICI-master'))
     addpath(genpath('./tools/PESTO-master'))
+%     addpath(genpath('/Users/lea.schuh/Documents/PhD/ICB/Xenopus/PESTO-master'))
+%     addpath(genpath('/Users/lea.schuh/Documents/PhD/ICB/Xenopus/AMICI-master'))
 end
 
 clearvars -except datatype dist modelsyms1 num_cycpar dem num_models modelsyms2 server
@@ -57,7 +59,7 @@ installAMICI
 if server
     H4K20_import_server;
 else
-    % H4K20_import;
+%     H4K20_import;
     H4K20dummy_import;
 end
 if isequal(datatype,'HUA')
@@ -269,8 +271,12 @@ for i = num_models
     
     params_cyc = {'a','b','d'};
     parameters.name = [params_cyc{1:num_cycpar}, parameters.name];
-    parameters.max = [repmat(10,1,num_cycpar), 2, 2, 2, 0];
-    parameters.min = [repmat(-10,1,num_cycpar), -4, -4, -4, -2];
+    parameters.max = [repmat(10,1,num_cycpar), 10, 10, 10, 2];
+%     parameters.max = [repmat(2,1,num_cycpar), 0, 0, 0, 0];
+%     parameters.max = [10, 0, 2, 2, 2, 0];
+    parameters.min = [repmat(-10,1,num_cycpar), -10, -10, -10, -2];
+%     parameters.min = [repmat(0,1,num_cycpar), -2, -2, -2, -2];
+%     parameters.min = [-10, -3, -4, -4, -4, -2];
     
     if isequal(datatype,'mockHUA')
         
@@ -282,14 +288,16 @@ for i = num_models
 
                 parameters_fixmock = {'r1_m', 'r2_m', 'r3_m'};
                 parameters.name = [parameters.name, parameters_fixmock];
-                parameters.max = [parameters.max, 2, 2, 2];
+                parameters.max = [parameters.max, 10, 10, 10];
+%                 parameters.min = [parameters.min, -10, -10, -10];
                 parameters.min = [parameters.min, -10, -10, -10];
 
                 % vectors containing the potential additional parameters and their boundaries
                 % for model HUA
                 % (indicated with '_h')
                 par_name_diff = {'r1_h', 'r2_h', 'r3_h'};
-                par_max_diff = [2, 2, 2];
+                par_max_diff = [10, 10, 10];
+%                 par_min_diff = [-10, -10, -10];
                 par_min_diff = [-10, -10, -10];
             
             case 'nomock'
@@ -298,11 +306,13 @@ for i = num_models
 
                 parameters_fixmock = {'r1_m', 'r2_m', 'r3_m'};
                 parameters.name = [parameters.name, parameters_fixmock];
-                parameters.max = [parameters.max, 2, 2, 2];
+                parameters.max = [parameters.max, 10, 10, 10];
+%                 parameters.min = [parameters.min, -10, -10, -10];
                 parameters.min = [parameters.min, -10, -10, -10];
 
                 par_name_diff = {'r1_h', 'r2_h', 'r3_h', 'd_h'};
-                par_max_diff = [2, 2, 2, 2];
+                par_max_diff = [10, 10, 10, 10];
+%                 par_min_diff = [-10, -10, -10, -10];
                 par_min_diff = [-10, -10, -10, -10];
             
             case 'noHUA'
@@ -311,11 +321,13 @@ for i = num_models
 
                 parameters_fixmock = {'r1_m', 'r2_m', 'r3_m', 'd_m'};
                 parameters.name = [parameters.name, parameters_fixmock];
-                parameters.max = [parameters.max, 2, 2, 2, -2];
+                parameters.max = [parameters.max, 10, 10, 10, 10];
+%                 parameters.min = [parameters.min, -10, -10, -10, -10];
                 parameters.min = [parameters.min, -10, -10, -10, -10];
 
                 par_name_diff = {'r1_h', 'r2_h', 'r3_h'};
-                par_max_diff = [2, 2, 2];
+                par_max_diff = [10, 10, 10];
+%                 par_min_diff = [-10, -10, -10];
                 par_min_diff = [-10, -10, -10];
             
             case 'yes'
@@ -324,14 +336,16 @@ for i = num_models
 
                 parameters_fixmock = {'r1_m', 'r2_m', 'r3_m', 'd_m'};
                 parameters.name = [parameters.name, parameters_fixmock];
-                parameters.max = [parameters.max, 2, 2, 2, 2];
+                parameters.max = [parameters.max, 10, 10, 10, 10];
+%                 parameters.min = [parameters.min, -10, -10, -10, -10];
                 parameters.min = [parameters.min, -10, -10, -10, -10];
 
                 % vectors containing the potential additional parameters and their boundaries
                 % for model HUA
                 % (indicated with '_h')
                 par_name_diff = {'r1_h', 'r2_h', 'r3_h', 'd_h'};
-                par_max_diff = [2, 2, 2, 2];
+                par_max_diff = [10, 10, 10, 10];
+%                 par_min_diff = [-10, -10, -10, -10];
                 par_min_diff = [-10, -10, -10, -10];
             
         end
@@ -371,12 +385,12 @@ for i = num_models
                 %vector containing the model specific parameters and their min/max values
                 parameters_name = {'d' 'd1' 'd2' 'd3' 'r' 'r1' 'r2' 'r3'};
                 parameters_max = [2, 2, 2, 2, 2, 2, 2, 2];
-                parameters_min = [-10, -10, -10, -10, -10, -10, -10, -10];
+                parameters_min = [-20, -20, -20, -20, -20, -20, -20, -20];
             case 'no'
                 %vector containing the model specific parameters and their min/max values
                 parameters_name = {'r' 'r1' 'r2' 'r3'};
                 parameters_max = [2, 2, 2, 2];
-                parameters_min = [-10, -10, -10, -10];
+                parameters_min = [-20, -20, -20, -20];
         end
         
         %parameter vector of model specific parameters for model i
