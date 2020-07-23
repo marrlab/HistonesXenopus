@@ -1,10 +1,19 @@
+%% add paths and install AMICI
+
+clearvars
+clc;
+installAMICI 
+
+%%
+
 load('./parameters/parameters_mockHUA_laplace_mock_MM_1_r1r2r3_HUA_d_r1r2r3') % for server
 modelsyms1 = 'mock_MM_1_r1r2r3';
 modelsyms2 = 'HUA_d_r1r2r3';
 dist = 'laplace';
 dem = 'yes';
 
-% H4K20_import;
+%H4K20_import
+% H4K20_import_server;
 H4K20dummy_import;
 
 model_syms1 = sprintf('histonesXenopus%s',modelsyms1);
