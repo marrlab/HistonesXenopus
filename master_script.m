@@ -298,7 +298,10 @@ if runsampling
     
     sampling_mock_nodem %model 5 for cell-cycle duration prediction and cell number prediction (Fig 2 F & G)
     
-    sampling_joint %joint models with demethylation in mock and HUA 5, 8, 13, 16 (a, b, c, d) for marginal distributions (Fig 4 E)
+    sampling_joint(5) %joint models with demethylation in mock and HUA 5, 8, 13, 16 (a, b, c, d) for marginal distributions (Fig 4 E)
+    sampling_joint(8)
+    sampling_joint(13)
+    sampling_joint(16)
     
     sampling_joint_nodemmock_demHUA %joint models with demethylation in only HUA 5, 8 (e, f) for marginal distributions (Fig 4 E)
     
@@ -369,28 +372,16 @@ end
 
 for imodel = 1
     
-    load('MCMCAll_mock_nodem')
+    load('./results/MCMCAll_mock_nodem')
     bmedian = median(10.^(MCMCAll{imodel}.samples(1,:)));
     quantileU = quantile(10.^(MCMCAll{imodel}.samples(1,:)),0.75);
     quantileL = quantile(10.^(MCMCAll{imodel}.samples(1,:)),0.25);
 
     t = 0.01:0.01:40;
-    cmedian = (0.5+bmedian.*t./(bmedian+t));
-    cquU = (0.5+quantileU.*t./(quantileU+t));
-    cquL = (0.5+quantileL.*t./(quantileL+t));
-    
-    Nmedian0 = 4096;
-    for t = 0.01:0.01:40
-        if t == 0.01
-            Nmedian(100*t) = Nmedian0*exp(log(2)/cmedian(100*t)*0.01);
-            NquantileU(100*t) = Nmedian0*exp(log(2)/(0.5+cquU*t/(cquU+t))*0.01);
-            NquantileL(100*t) = Nmedian0*exp(log(2)/(0.5+cquL*t/(cquL+t))*0.01);
-        else
-            Nmedian(single(100*t)) = Nmedian(single(100*t-1))*exp(log(2)/cmedian(single(100*t))*0.01);
-            NquantileU(single(100*t)) = NquantileU(single(100*t-1))*exp(log(2)/cquU(single(100*t))*0.01);
-            NquantileL(single(100*t)) = NquantileL(single(100*t-1))*exp(log(2)/cquL(single(100*t))*0.01);
-        end
-    end
+
+    Nmedian = Nmedian0.*exp(2.*log(2)./(2*bmedian+1)^2.*(2.*bmedian^2.*log(2.*bmedian.*t+bmedian+t)+2.*bmedian.*t+t-2.*bmedian^2.*log(bmedian)));
+    NquantileU = Nmedian0.*exp(2.*log(2)./(2*quantileU+1)^2.*(2.*quantileU^2.*log(2.*quantileU.*t+quantileU+t)+2.*quantileU.*t+t-2.*quantileU^2.*log(quantileU)));
+    NquantileL = Nmedian0.*exp(2.*log(2)./(2*quantileL+1)^2.*(2.*quantileL^2.*log(2.*quantileL.*t+quantileL+t)+2.*quantileL.*t+t-2.*quantileL^2.*log(quantileL)));
 
 end
 
