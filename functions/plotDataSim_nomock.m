@@ -112,7 +112,7 @@ for model = 1:2
             xlim([5.5,45])
             
             ylim([0,1])
-%                     ylim([0,0.025]) %used for inset (H4K30me)
+%             ylim([0,0.025]) %used for inset (H4K30me)
             box off
             set(gca,'linewidth',1.02)
             set(gca,'FontSize',11)
