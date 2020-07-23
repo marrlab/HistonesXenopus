@@ -18,13 +18,13 @@ syms 't'
 model.sym.xdot = sym(zeros(size(model.sym.x)));
 % piecewise defined function
 model.sym.xdot(1) = -r1_m*K20P+d1_m*K20m1+(log(2)/(0.5+(d*t)))...
-    *(K20P+K20m1+K20m2+K20m3)-((log(2)*0.5)/(0.5+(d*t))^2)*K20P;
+    *(K20P+K20m1+K20m2+K20m3)-(log(2)/(0.5+(d*t)))*K20P;
 model.sym.xdot(2) = r1_m*K20P-(r2_m+d1_m)*K20m1+d2_m*K20m2...
-    -((log(2)*0.5)/(0.5+(d*t))^2)*K20m1;
+    -(log(2)/(0.5+(d*t)))*K20m1;
 model.sym.xdot(3) = r2_m*K20m1-(r3_m+d2_m)*K20m2+d3_m*K20m3...
-    -((log(2)*0.5)/(0.5+(d*t))^2)*K20m2;
+    -(log(2)/(0.5+(d*t)))*K20m2;
 model.sym.xdot(4) = r3_m*K20m2-d3_m*K20m3...
-    -((log(2)*0.5)/(0.5+(d*t))^2)*K20m3;
+    -(log(2)/(0.5+(d*t)))*K20m3;
  
 %create initial conditions
 model.sym.x0 = sym(zeros(size(model.sym.x)));
