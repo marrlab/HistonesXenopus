@@ -1,11 +1,11 @@
-addpath(genpath('../Xenopus')) 
-
-load('parameters_mock_laplace_mock_MM_1_r1r2r3')
+% load('parameters_mock_laplace_mock_MM_1_r1r2r3')
+load('./parameters/parameters_mock_laplace_mock_MM_1_r1r2r3')
 modelsyms1 = 'mock_MM_1_r1r2r3';
 dist = 'laplace';
 dem = 'no';
 
-% H4K20_import;
+% H4K20_import
+% H4K20_import_server;
 H4K20dummy_import;
 
 model_syms1 = sprintf('histonesXenopus%s',modelsyms1);
@@ -60,7 +60,7 @@ for imodel = 5
     % optimization, all of them starting from the same point
     optionsPesto.MCMC.theta0 = S(imodel).sol.MS.par(:,1:5);
     for imat = 1:5
-        A(:,:,imat) = inv(squeeze(S(imodel).sol.MS.hessian(:,:,imat)));
+        A(:,:,imat) = inv((S(imodel).sol.MS.hessian(:,:,imat)));
     end
     optionsPesto.MCMC.sigma0 = A;
     
