@@ -6,7 +6,7 @@ for ipar = 5
     clearvars -except imodel icount CredibleRanges MCMCAll ipar
     
     %get uncertainties
-    loadpar = sprintf('./parametersII/parametersSamples%d_mock_nodem',ipar);
+    loadpar = sprintf('./parameters/parametersSamples%d_mock_nodem',ipar);
     load(loadpar)
     
     %GEWEKE test to dtermine burn-in phase
