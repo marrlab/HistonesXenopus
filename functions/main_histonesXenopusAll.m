@@ -59,8 +59,8 @@ installAMICI
 if server
     H4K20_import_server;
 else
-%     H4K20_import;
-    H4K20dummy_import;
+    H4K20_import;
+%     H4K20dummy_import;
 end
 if isequal(datatype,'HUA')
     D = DB;
