@@ -2,7 +2,8 @@ clearvars;
 clc;
 
 addpath(genpath('../HistonesXenopus')) 
-H4K20dummy_import;
+H4K20_import;
+% H4K20dummy_import;
 
 count = 1;
 for i = 1:size(DA(1).y,1)
