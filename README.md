@@ -47,7 +47,7 @@ There are mainly two important scripts (i) for the analysis summarized in [maste
 
 ## Data
 
-The H4K20 methylation proportions of both mock and HUA over time can be found in the file [data/H4K20states.xlsx](data/H4K20states.xlsx). Until the original data set will be published (Pokrovsky et al., to be submitted) we will provide dummy data in [data/H4K20states_dummy.xlsx](data/H4K20states_dummy.xlsx). Upon publication of the data we will upload the the true data here. The doubling times of cells during Xenopus embryogenesis found in literature are summarized in [data/DTdata.xlsx](data/DTdata.xlsx). The corresponding import scripts can be found in the same folder. The images of mock and HUA embryos corresponding to the different developmental stages (Figure 1A) can be found in [images](images).
+The H4K20 methylation proportions of both mock and HUA over time can be found in the file [data/H4K20states.xlsx](data/H4K20states.xlsx). Until the original data set will be published we will provide dummy data in [data/H4K20states_dummy.xlsx](data/H4K20states_dummy.xlsx). Upon publication of the data we will upload the the true data here. The doubling times of cells during Xenopus embryogenesis found in literature are summarized in [data/DTdata.xlsx](data/DTdata.xlsx). The corresponding import scripts can be found in the same folder. The images of mock and HUA embryos corresponding to the different developmental stages (Figure 1A) can be found in [images](images).
 
 ## Workflow
 
