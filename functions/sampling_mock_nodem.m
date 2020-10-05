@@ -4,9 +4,9 @@ modelsyms1 = 'mock_MM_1_r1r2r3';
 dist = 'laplace';
 dem = 'no';
 
-% H4K20_import
+H4K20_import
 % H4K20_import_server;
-H4K20dummy_import;
+% H4K20dummy_import;
 
 model_syms1 = sprintf('histonesXenopus%s',modelsyms1);
 amiwrap(model_syms1, [model_syms1,'_syms'], './simulation');
