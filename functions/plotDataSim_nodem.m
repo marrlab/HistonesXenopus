@@ -1,7 +1,7 @@
 function plotDataSim_nodem
 
-% H4K20_import;
-H4K20dummy_import;
+H4K20_import;
+% H4K20dummy_import;
 
 load('./parameters/parameters_mock_laplace_mock_MM_1_r1r2r3')
 modelsyms1 = 'mock_MM_1_r1r2r3';
