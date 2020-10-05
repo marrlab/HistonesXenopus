@@ -63,4 +63,4 @@ All estimated parameter sets of the optimization and the MCMC sampling results o
 
 ## Supplementary Information
 
-The summary of all model optimizations (rank, delta BIS, BIC, model ID adn potentially the average doubling time) can be found in [HistonesXenopus_results.xlsx](HistonesXenopus_results.xlsx).
+The summary of all model optimizations (rank, delta BIC, BIC, model ID adn potentially the average doubling time) can be found in [HistonesXenopus_results.xlsx](HistonesXenopus_results.xlsx).
