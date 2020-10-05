@@ -1,7 +1,7 @@
 function plotDataSim_mockMO
 
-% H4K20_import;
-H4K20dummy_import;
+H4K20_import;
+% H4K20dummy_import;
 H4K20MO_import;
 
 load('parameters_mock_laplace_mock_MM_1_r1r2r3')
