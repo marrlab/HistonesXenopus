@@ -1,5 +1,5 @@
-% H4K20_import;
-H4K20dummy_import;
+H4K20_import;
+% H4K20dummy_import;
 
 pos = [0.1,0.32,0.54,0.76];
 xlen = 0.2;
