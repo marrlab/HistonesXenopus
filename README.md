@@ -4,7 +4,7 @@ contains code and data accompanying
 
 __Computational modeling reveals cell-cycle dependent kinetics of H4K20 methylation states during Xenopus embryogenesis__
 
-Lea Schuh<sup>1,2</sup>, Carolin Loos<sup>1,2,3,4</sup>, Daniil Pokrovsky<sup>5</sup>, Axel Imhof<sup>5</sup>, Ralph Rupp<sup>5</sup>, Carsten Marr<sup>1,*</sup>
+Lea Schuh<sup>1,2</sup>, Carolin Loos<sup>1,2,3,4</sup>, Daniil Pokrovsky<sup>5</sup>, Axel Imhof<sup>5</sup>, Ralph A.W. Rupp<sup>5</sup>, Carsten Marr<sup>1,*</sup>
 
 <sub><sup>
 <sup>1</sup>Helmholtz Zentrum München-German Research Center for Environmental Health, Institute of Computational Biology, Neuherberg, 85764, Germany <br>
@@ -17,9 +17,7 @@ Lea Schuh<sup>1,2</sup>, Carolin Loos<sup>1,2,3,4</sup>, Daniil Pokrovsky<sup>5<
 
 ## Summary
 
-During embryogenesis a fast and economic control of cell-specific gene expression is required. Histone modifications regulate chromatin accessibility and thereby control gene expression. However, rapid cell division leads to an overall dilution of histone modifications. How does the cell-cycle shape the histone modification landscape?
-We addressed this question in vivo by altering the cell-cycle during the Xenopus laevis early embryogenesis. We assessed the global distribution of un, mono- di- and trimethylated H4K20 states by mass spectrometry in normal and cell-cycle arrested embryos. Using a multi-start maximum likelihood optimization approach and quantitative model selection, we found that three specific methylation rate constants were required to explain the measured data. Interestingly, demethylation was found to be redundant in the cycling embryo population but essential in the cell-cycle arrested embryo population. 
-Together, we present the first quantitative analysis of in vivo H4K20 methylation dynamics and show that demethylation is essential for shaping the epigenetic H4K20 landscape in non-cycling cells. <br>
+DNA replication during cell division leads to dilution of histone modifications and can thus affect chromatin-mediated gene regulation, raising the question of how the cell-cycle shapes the histone modification landscape, particularly during embryogenesis. We tackled this problem by manipulating the cell-cycle during early Xenopus laevis embryogenesis and analyzing in vivo histone H4K20 methylation kinetics. The global distribution of un-, mono- di- and tri-methylated histone H4K20 was measured by mass spectrometry in normal and cell-cycle arrested embryos over time. Using multi-start maximum likelihood optimization and quantitative model selection, we found that three specific biological methylation rate constants were required to explain the measured H4K20 methylation state kinetics. While demethylation is essential for regulating H4K20 methylation kinetics in non-cycling cells, demethylation is very likely dispensable in rapidly dividing cells of early embryos, suggesting that cell-cycle mediated dilution of H4K20 methylation is an essential regulatory component for shaping its epigenetic landscape during early development. <br>
 
 Required software and toolboxes:
 
