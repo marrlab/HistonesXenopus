@@ -3,8 +3,8 @@ function plotDataSim(datatype)
 %datatype - either 'mock' or 'HUA' for single models or 'mockHUA' for joint
 %models 
     
-% H4K20_import;
-H4K20dummy_import;
+H4K20_import;
+% H4K20dummy_import;
 
 switch datatype
     case 'mock'
